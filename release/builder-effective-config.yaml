@@ -1,0 +1,37 @@
+directories:
+  output: release
+  buildResources: build
+appId: com.anchorledger.desktop
+productName: AnchorLedger
+copyright: Copyright © 2026 AnchorLedger
+files:
+  - filter:
+      - dist/**/*
+      - electron/**/*
+      - build/icon.png
+extraResources:
+  - from: build/icon.png
+    to: icon.png
+win:
+  target:
+    - target: nsis
+      arch:
+        - x64
+  icon: build/icon.png
+nsis:
+  oneClick: false
+  perMachine: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  shortcutName: AnchorLedger
+mac:
+  target: dmg
+  icon: build/icon.png
+  category: public.app-category.finance
+linux:
+  target:
+    - AppImage
+  icon: build/icon.png
+  category: Finance
+electronVersion: 33.4.11
